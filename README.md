@@ -1,4 +1,4 @@
-<h1><img src="images/cover.png"></h1>
+<h1><img src="images/cover.jpg"></h1>
 
 # Soutenance de Stage
 ##IUT Lyon 1 / Dept. Informatique 
