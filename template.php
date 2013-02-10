@@ -1,3 +1,15 @@
+<?php
+
+$extensions = array("php", "jpg", "jpeg", "gif", "css", "js", "png");
+$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+$ext = pathinfo($path, PATHINFO_EXTENSION);
+if (in_array($ext, $extensions)) {
+    // let the server handle the request as-is
+    return false; 
+}
+
+?>
+
 <!--
 Google IO 2012 HTML5 Slide Template
 
@@ -9,6 +21,7 @@ URL: https://code.google.com/p/io-2012-slides
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Soutenance de Stage - Bernardo DE PAULA RITTMEYER</title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -30,9 +43,6 @@ URL: https://code.google.com/p/io-2012-slides
     <article class="flexbox vcenter">
       <h2>Bonjour</h2>
     </article>
-  </slide>
-
-  <slide class="fill nobackground" style="background-image: url(images/cover.jpg)">
   </slide>
 
   <slide class="title-slide segue nobackground">
@@ -399,16 +409,20 @@ function helloWorld(world) {
 
 </slides>
 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"></script>
+<script src="server/js/socket.io.js"></script>
 <script>
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
-_gaq.push(['_trackPageview']);
-
-(function() {
-  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-})();
+  $(document).ready(function() {
+    var socket = io.connect('http://localhost:80');
+    socket.emit('view-join', function (success, views){
+      console.log(views);
+    });
+    socket.on('next-slide', function (data) {
+      console.log(data);
+      slidedeck.nextSlide();
+    });
+  });
 </script>
 
 <!--[if IE]>

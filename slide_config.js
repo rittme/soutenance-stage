@@ -1,8 +1,8 @@
 var SLIDE_CONFIG = {
   // Slide settings
   settings: {
-    title: 'Title Goes Here<br>Up To Two Lines',
-    subtitle: 'Subtitle Goes Here',
+    title: 'Soutenance de Stage',
+    subtitle: 'Redéveloppement de site Web et migration de Forum<br>avec développement de surcouche de données vers les Extranets.',
     useBuilds: true, // Default: true. False will turn off slide animation builds.
     usePrettify: true, // Default: true
     enableSlideAreas: true, // Default: true. False turns off the click areas on either slide of the slides.
@@ -18,12 +18,11 @@ var SLIDE_CONFIG = {
 
   // Author information
   presenters: [{
-    name: 'Firstname Lastname',
-    company: 'Job Title, Google',
-    gplus: 'http://plus.google.com/1234567890',
-    twitter: '@yourhandle',
-    www: 'http://www.you.com',
-    github: 'http://github.com/you'
+    name: 'Bernardo DE PAULA RITTMEYER',
+    company: 'G6S4, Département Informatique <br> IUT Lyon 1 / Université Claude Bernard',
+    twitter: '@rittme',
+    www: 'http://www.rittme.com',
+    github: 'http://github.com/rittme'
   }/*, {
     name: 'Second Name',
     company: 'Job Title, Google',
