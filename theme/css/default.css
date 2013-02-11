@@ -295,16 +295,16 @@ slides > slide.dark {
 /* line 171, ../scss/default.scss */
 slides > slide:not(.nobackground):before {
   font-size: 12pt;
-  content: "#yourhashtag";
+  content: "Soutenance de Stage | Bernardo DE PAULA RITTMEYER";
   position: absolute;
   bottom: 20px;
   left: 60px;
-  background: url(../../images/google_developers_icon_128.png) no-repeat 0 50%;
+  background: url(../../images/efc_s.svg) no-repeat 0 50%;
   -webkit-background-size: 30px 30px;
   -moz-background-size: 30px 30px;
   -o-background-size: 30px 30px;
-  background-size: 30px 30px;
-  padding-left: 40px;
+  background-size: 40px 30px;
+  padding-left: 50px;
   height: 30px;
   line-height: 1.9;
 }
@@ -1268,11 +1268,11 @@ article.smaller q:before, article.smaller q:after {
 
 /* line 884, ../scss/default.scss */
 aside.gdbar {
-  height: 97px;
-  width: 215px;
+  height: 170px;
+  width: 300px;
   position: absolute;
   left: -1px;
-  top: 125px;
+  top: 190px;
   -webkit-border-radius: 0 10px 10px 0;
   -moz-border-radius: 0 10px 10px 0;
   -ms-border-radius: 0 10px 10px 0;
@@ -1320,13 +1320,14 @@ aside.gdbar.right img {
 aside.gdbar.bottom {
   top: -moz-initial;
   top: initial;
-  bottom: 60px;
+  bottom: 100px;
 }
 /* line 913, ../scss/default.scss */
 aside.gdbar img {
-  width: 85px;
-  height: 85px;
+  width: 230px;
+  /*height: 85px;*/
   position: absolute;
+  top:15px;
   right: 0;
   margin: 8px 15px;
 }
