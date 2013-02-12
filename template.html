@@ -60,7 +60,31 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
   </slide>
 
-  <slide >
+  <slide hidden>
+    <hgroup>
+      <h2>Slide with Bullets that Build</h2>
+      <h3>Subtitle Placeholder</h3>
+    </hgroup>
+    <article>
+      <p>A list where items build:</p>
+      <ul class="build">
+        <li>Pressing 'h' highlights code snippets</li>
+        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
+        <li>Pressing 'f' toggles fullscreen viewing</li>
+        <li>Pressing 'w' toggles widescreen</li>
+        <li>Pressing 'o' toggles overview mode</li>
+        <li>Pressing 'ESC' toggles off these goodies</li>
+      </ul>
+      <p>Another list, but items fade as they build:</p>
+      <ul class="build fade">
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+        <li>Hover over me!</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
     <hgroup class="flexbox vcenter">
       <h1>Introduction</h1>
     </hgroup>
@@ -98,98 +122,140 @@ URL: https://code.google.com/p/io-2012-slides
     <p><a href="http://www.gestadis.com">http://www.comptamag.com</a></p>
   </slide>
 
-  <slide hidden>
+  <slide>
     <hgroup>
-      <h2>Slide with Bullets that Build</h2>
-      <h3>Subtitle Placeholder</h3>
+      <h2>Forum EFC</h2>
     </hgroup>
-    <article>
-      <p>A list where items build:</p>
-      <ul class="build">
-        <li>Pressing 'h' highlights code snippets</li>
-        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
-        <li>Pressing 'f' toggles fullscreen viewing</li>
-        <li>Pressing 'w' toggles widescreen</li>
-        <li>Pressing 'o' toggles overview mode</li>
-        <li>Pressing 'ESC' toggles off these goodies</li>
-      </ul>
-      <p>Another list, but items fade as they build:</p>
-      <ul class="build fade">
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-      </ul>
-    </article>
+    <div class="box">
+      <article class="flex" style="-webkit-flex: 1;">
+        
+          <p>Forum de discussion en ligne pour les étudiants.</p>
+          <p><strong>Objetif:</strong> diminuer la sensation de solitude</p>
+          <p><strong>Système:</strong> PHPBB (LAMP)</p>
+        
+      </article>
+      <aside class="flex" style="text-align:center">
+        <img src="images/ex-forum.jpg" width="100%" class="reflect" alt="Ancien Forum" title="Ancien Forum">
+        <small>Ancienne Interface du Forum</small>
+      </aside>
+    </div>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Slide with (Smaller Font)</h2>
+      <h2>Besoins</h2>
     </hgroup>
-    <article class="smaller">
+    <article>  
       <ul>
-        <li>All <a href="http://google.com">links</a> open in new tabs.</li>
-        <li>To change that this, add <code>target="_self"</code> to the link.</li>
+        <li>Installation d'une nouvelle version de PHPBB <small>+ extensions</small></li>
+        <li>Migrer des informations</li>
+        <li>Disposer d'une API pour récupération des données par SQL</li>
+        <li>Interface Graphique de récupération des abonnées à la newsletter</li>
+        <li>Relooker le forum</li>
       </ul>
     </article>
   </slide>
 
-  <slide hidden>
-    Hidden slides are left out of the presentation.
+  <slide>
+    <hgroup>
+      <h2>Contraintes</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Aucune expérience avec le <strong>Systhème PHPBB</strong></li>
+        <li>Plus de <em>1500 fichiers</em> et <em>63 tables</em> MySQL
+          <ul>
+            <li>Faiblement Commenté</li>
+            <li>Sans convention de nommage ou style</li>
+            <li>Documentation superficielle</li>
+          </ul>
+        </li>
+        <li>Structure des tables corrompue</li>
+      </ul>
+    </article>
   </slide>
 
   <slide>
+    <aside class="note">
+      <section>
+        <h3>Expressions Régulières</h3>
+      </section>
+    </aside>
     <hgroup>
-      <h2>Code Slide (with Subtitle Placeholder)</h2>
-      <h3>Subtitle Placeholder</h3>
+      <h2>Solution</h2>
     </hgroup>
     <article>
-      <p>Press 'h' to highlight important sections of code (wrapped in <code>&lt;b&gt;</code>).</p>
-      <pre class="prettyprint" data-lang="javascript">
-&lt;script type='text/javascript'&gt;
-  // Say hello world until the user starts questioning
-  // the meaningfulness of their existence.
-  function helloWorld(world) {
-    <b>for (var i = 42; --i &gt;= 0;) {
-      alert('Hello ' + String(world));
-    }</b>
-  }
-&lt;/script&gt;
-</pre>
+      <h3>Migration des bases</h3>
+      Exportation et comparaison des structures des bases<br>
+      Restructuration automatique: <strong>Expressions Régulières</strong> <br>
+      <hr><br>
+      <h3>Récupération des données</h3>
+      "Ouverture" de la base de données
     </article>
   </slide>
 
   <slide>
     <hgroup>
-      <h2>Code Slide (Smaller Font)</h2>
+      <h2>Solution <small>- p.2</small></h2>
+      <h3>Interface Newsletter</h3>
     </hgroup>
-    <article class="smaller">
-      <pre class="prettyprint" data-lang="javascript">
-// Say hello world until the user starts questioning
-// the meaningfulness of their existence.
-function helloWorld(world) {
-  for (var i = 42; --i &gt;= 0;) {
-    alert('Hello ' + String(world));
-  }
-}
-</pre>
-<pre class="prettyprint" data-lang="css">
-&lt;style&gt;
-  p { color: pink }
-  b { color: blue }
-&lt;/style&gt;
-</pre>
-<pre class="prettyprint" data-lang="html">
-&lt;!DOCTYPE html>
-&lt;html>
-&lt;head>
-  &lt;title>My Awesome Page&lt;/title>
-&lt;/head>
-&lt;body>
-  &lt;p&gt;Hello world&lt;/p&gt;
-&lt;body>
-&lt;/html>
-</pre>
+    <article class="box">
+      <article class="flex">
+        <p>Option pour s'abonner</p>
+        <p>Exportation au format .CSV</p>
+        <p><strong>Sécurité:</strong> Autentification unique avec le Forum</p>
+      </article>
+      <aside class="flex" style="text-align:center">
+        <img src="images/recup.png" width="100%" class="reflect" alt="Recupération d'utilisateurs" title="Recupération d'utilisateurs">
+        <small>Interface de récupération des utilisateurs</small>
+      </aside>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Résultat</h2>
+    </hgroup>
+    <article class="flexbox vcenter" style="margin-top:0">
+      Nouveau forum en ligne et fonctionnel.<br>
+      <img src="images/forum.png" height="400" class="reflect" alt="Forum" title="Forum">
+      
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Comptamag</h2>
+    </hgroup>
+    <article class="box">
+      <article class="flex" style="-webkit-flex:1">
+        <p>Magazine en ligne d'informations et actualités Comptables.</p>
+        <p>Créé en 2005.</p>
+        <p>Moyen de prospection d’élèves.</p>
+      </article>
+      <aside class="flex" style="text-align:center">
+        <img src="images/ex-comptamag2.jpg" width="100%" class="reflect" alt="Ancien Site Comptamag" title="Ancien Site Comptamag">
+        <small>Acient Site Comptamag</small>
+      </aside>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>Besoins</h2>
+    </hgroup>
+    <article>
+      <ul>
+      <li>Un design attractif et moderne.</li>
+      <li>Optimisation <strong>SEO</strong>.</li>
+      <li>Structure hiérarchique adéquate.</li>
+      <li>Panneau d’administration :
+        <ul>
+          <li><strong>Administrateur :</strong> interne</li>
+          <li><strong>Editeur :</strong> externe</li>
+        </ul>
+      </li>
+      <li>Recherche Google intégré.</li>
     </article>
   </slide>
 

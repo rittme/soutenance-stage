@@ -95,7 +95,7 @@ h2 {
     font-size:350%;
     /* Remember to set the correct font weight if using fontface */
     font-weight:normal;
-
+    text-shadow:2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 h3 {
@@ -108,6 +108,7 @@ h3 {
     /* Remember to set the correct font weight if using fontface */
     font-weight:normal;
     margin-bottom:20px;
+    text-shadow:2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 strong {
@@ -122,4 +123,25 @@ small {
     font-size: 70%;
     text-transform:none;
     color:#777;
+}
+
+.box {
+    display: -webkit-flex;
+}
+
+.flex {
+    -webkit-flex: 1;
+    padding:20px;
+}
+
+em {
+    font-style: italic;
+}
+
+ul ul {
+    font-size: 80%;
+}
+
+.note > section {
+    width:70%;
 }
