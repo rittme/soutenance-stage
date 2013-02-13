@@ -19,8 +19,10 @@ URL: https://code.google.com/p/io-2012-slides
   <meta name="apple-mobile-web-app-capable" content="yes">
   <link rel="stylesheet" media="all" href="theme/css/default.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+    <link rel="stylesheet" media="all" href="theme/css/bootstrap.min.css">
   <link rel="stylesheet" media="all" href="theme/css/stylesheet.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script src="js/jquery.js"></script>
   <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
 </head>
 <body style="opacity: 0">
@@ -79,12 +81,14 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide>
+      <aside class="bloc">1. Introduction</aside>
     <hgroup class="flexbox vcenter">
       <h1>Introduction</h1>
     </hgroup>
   </slide>
 
   <slide>
+    <aside class="bloc">1.1. Introduction | Présentation</aside>
     <aside class="gdbar right" style="top:170px"><img src="images/lyon1.png"></aside>
 
     <aside class="gdbar right bottom"><img src="images/efc.svg"></aside>
@@ -108,10 +112,13 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide>
-    <h2>Les Sujets de stage</h2>
-    <h3>Migration de Forum <br><small>avec développement de surcouche</small></h3>
+      <aside class="bloc">1.2. Introduction | Sujets de stage</aside>
+    <hgroup>
+      <h2>Les Sujets de stage</h2>
+    </hgroup>
+    <h3>Migration de Forum <br></h3>
     <p><a href="http://www.ecolefrancaisedecomptabilite.fr">http://www.ecolefrancaisedecomptabilite.fr</a></p>
-    <div style="text-align:center">
+    <div style="text-align:center;margin:20px 0">
       <img src="images/et.png">
     </div>
     <h3>Redévelopmenet de site Web</h3>
@@ -119,6 +126,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide>
+      <aside class="bloc">2. Forum EFC</aside>
     <hgroup>
       <h2>Forum EFC</h2>
     </hgroup>
@@ -138,6 +146,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide>
+      <aside class="bloc">2.1. Forum EFC | Analyse</aside>
     <hgroup>
       <h2>Besoins</h2>
     </hgroup>
@@ -153,6 +162,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide>
+    <aside class="bloc">2.1. Forum EFC | Analyse</aside>
     <hgroup>
       <h2>Contraintes</h2>
     </hgroup>
@@ -172,6 +182,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide>
+    <aside class="bloc">2.2. Forum EFC | Développement</aside>
     <aside class="note">
       <section>
         <h3>Expressions Régulières</h3>
@@ -183,7 +194,7 @@ URL: https://code.google.com/p/io-2012-slides
     <article>
       <h3>Migration des bases</h3>
       Exportation et comparaison des structures des bases<br>
-      Restructuration automatique: <strong>Expressions Régulières</strong> <br>
+      Restructuration automatique: <strong id="expr">Expressions Régulières</strong> <br>
       <hr><br>
       <h3>Récupération des données</h3>
       "Ouverture" de la base de données
@@ -191,6 +202,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide>
+    <aside class="bloc">2.2. Forum EFC | Développement</aside>
     <hgroup>
       <h2>Solution <small>- p.2</small></h2>
       <h3>Interface Newsletter</h3>
@@ -209,6 +221,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide>
+    <aside class="bloc">2.3. Forum EFC | Résultat</aside>
     <hgroup>
       <h2>Résultat</h2>
     </hgroup>
@@ -220,6 +233,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
     
   <slide>
+    <aside class="bloc">3. Comptamag</aside>
     <hgroup>
       <h2>Comptamag</h2>
     </hgroup>
@@ -237,6 +251,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide>
+    <aside class="bloc">3.1. Comptamag | Analyse</aside>
     <hgroup>
       <h2>Besoins</h2>
     </hgroup>
@@ -257,6 +272,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
     
   <slide>
+      <aside class="bloc">3.1. Comptamag | Analyse</aside>
       <hgroup>
           <h2>
               Analyse
@@ -271,6 +287,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
     
     <slide>
+        <aside class="bloc">3.1. Comptamag | Analyse</aside>
         <hgroup>
             <h2>
                 Solutions Utilisées
@@ -282,6 +299,7 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>    
     
     <slide>
+        <aside class="bloc">3.2. Comptamag | Développement</aside>
         <hgroup>
             <h2>
                 Conception <small>- Layout</small>
@@ -304,11 +322,18 @@ URL: https://code.google.com/p/io-2012-slides
         </article>
     </slide>
 
-    <slide class="fill" style="background-image: url(images/mockup.jpg)">
+    <slide>
+        <aside class="bloc">3.2. Comptamag | Développement</aside>
+        <ul class="build img-list">
+        <li><img src="images/big.png"></li>
+        <li><img src="images/medium.png"></li>
+        <li><img src="images/small.png"></li>
+      </ul>
     </slide>
     
     
     <slide>
+        <aside class="bloc">3.2. Comptamag | Développement</aside>
         <aside class="gdbar right" style="top:170px"><img src="images/laravel.png" style="height:125px;width:auto"></aside>
         <hgroup>
             <h2>
@@ -330,6 +355,7 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">3.2. Comptamag | Développement</aside>
         <hgroup>
             <h2>
                 Conception <small>- Modéle MVC</small>
@@ -341,9 +367,10 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">3.2. Comptamag | Développement</aside>
         <hgroup>
             <h2>
-                Panneau d'administration
+                Back Office
             </h2>
         </hgroup>
         <div style="text-align:center">
@@ -352,9 +379,10 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">3.3. Comptamag | Point Technique</aside>
         <hgroup>
             <h2>
-                Gestion de Tags
+                Gestion de Tags <small>- Point technique</small>
             </h2>
         </hgroup>
         <article>
@@ -362,12 +390,26 @@ URL: https://code.google.com/p/io-2012-slides
                 <strong>Panneau d'administration :</strong> Doit être dynamique et ergonomique.
             </p>
             <div style="text-align:center">
-                <img src="images/tags.png" >
+                <div class="well" style="margin:0 auto; width:650px; text-align: left;">
+                    <h2>Tags</h2>
+                        <div class="input-prepend input-append">
+                          <span class="add-on"><i class="icon-search"></i></span>
+                          <input type="text" class="input-xlarge" id="tag-recherche">
+                          <a id="tag-btn" type="submit" class="btn btn-success disabled"><i class="icon-plus-sign icon-white"></i> Ajouter tag</a>
+                          <a id="tag-toutes" class="btn btn-warning"><i class="icon-tags icon-white"></i> Toutes</a>
+                        </div>
+                    <div class="clearfix"></div>
+                    <div class="well dark-well">
+                        <ul class="nav nav-pills" id="tag-list">
+                        </ul>
+                    </div>
+                </div>
             </div>
         </article>
     </slide>
     
     <slide>
+        <aside class="bloc">3.3. Comptamag | Point Technique</aside>
         <hgroup>
             <h2>
                 Gestion de Tags <small> - Schéma</small>
@@ -376,6 +418,7 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">3.3. Comptamag | Point Technique</aside>
         <hgroup>
             <h2>
                 Gestion de Tags <small> - Cotê Client</small>
@@ -389,6 +432,7 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">3.3. Comptamag | Point Technique</aside>
         <hgroup>
             <h2>
                 Gestion de Tags <small> - Cotê Client / P.2</small>
@@ -402,6 +446,7 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">3.3. Comptamag | Point Technique</aside>
         <hgroup>
             <h2>
                 Gestion de Tags <small> - Cotê Serveur</small>
@@ -410,6 +455,7 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">3.4. Comptamag | Résultats</aside>
         <hgroup>
             <h2>
                 Résultats
@@ -418,10 +464,12 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">3.4. Comptamag | Résultats</aside>
         <iframe data-src="http://www.gestadis.com"></iframe>
     </slide>
     
     <slide>
+        <aside class="bloc">4. Bilan</aside>
         <hgroup>
             <h2>
                 Bilan Humain
@@ -430,6 +478,7 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">4. Bilan</aside>
         <hgroup>
             <h2>
                 Bilan Technique
@@ -438,6 +487,7 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">4. Bilan</aside>
         <hgroup>
             <h2>
                 Bilan Personnel
@@ -446,6 +496,7 @@ URL: https://code.google.com/p/io-2012-slides
     </slide>
     
     <slide>
+        <aside class="bloc">5. Conclusion</aside>
         <hgroup>
             <h2>
                 Conclusion
@@ -464,7 +515,16 @@ URL: https://code.google.com/p/io-2012-slides
   <slide class="backdrop"></slide>
 
 </slides>
-
+    
+<div id="modal" class="modal hide fade">
+  <div class="modal-header">
+    <h3>Expressions Régulières</h3>
+  </div>
+  <div class="modal-body">
+    <p>Les expressions régulières</p>
+  </div>
+</div>
+    
 <!--[if IE]>
   <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
   <script>CFInstall.check({mode: 'overlay'});</script>
