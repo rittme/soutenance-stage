@@ -37,11 +37,13 @@ URL: https://code.google.com/p/io-2012-slides
       <h2>Sommaire</h2>
     </hgroup>
     <article>
-      <ul>
-        <li>Contexte ................................................................................... 05</li>
-        <li>Title capitalization is title case
-        <li>Subtitle capitalization is title case</li>
-        <li>Titles and subtitles should never have a period at the end</li>
+      <ul class="sommaire">
+        <li>1. Introduction  <div style="float:right;">03</div></li>
+        <li>2. Forum EFC  <div style="float:right;">05</div></li>
+        <li>3. Comptamag  <div style="float:right;">11</div></li>
+        <li>3.4. Point Technique  <div style="float:right;">20</div></li>
+        <li>4. Bilan  <div style="float:right;">27</div></li>
+        <li>5. Conclusion  <div style="float:right;">30</div></li>
       </ul>
     </article>
   </slide>
@@ -53,37 +55,6 @@ URL: https://code.google.com/p/io-2012-slides
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
       <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
       <p data-config-presenter><!-- populated from slide_config.json --></p>
-    </hgroup>
-  </slide>
-
-  <slide hidden>
-    <hgroup>
-      <h2>Slide with Bullets that Build</h2>
-      <h3>Subtitle Placeholder</h3>
-    </hgroup>
-    <article>
-      <p>A list where items build:</p>
-      <ul class="build">
-        <li>Pressing 'h' highlights code snippets</li>
-        <li>Pressing 'p' toggles speaker notes (if they're on the current slide)</li>
-        <li>Pressing 'f' toggles fullscreen viewing</li>
-        <li>Pressing 'w' toggles widescreen</li>
-        <li>Pressing 'o' toggles overview mode</li>
-        <li>Pressing 'ESC' toggles off these goodies</li>
-      </ul>
-      <p>Another list, but items fade as they build:</p>
-      <ul class="build fade">
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-        <li>Hover over me!</li>
-      </ul>
-    </article>
-  </slide>
-
-  <slide>
-      <aside class="bloc">1. Introduction</aside>
-    <hgroup class="flexbox vcenter">
-      <h1>Introduction</h1>
     </hgroup>
   </slide>
 
@@ -325,10 +296,10 @@ URL: https://code.google.com/p/io-2012-slides
     <slide>
         <aside class="bloc">3.2. Comptamag | Développement</aside>
         <ul class="build img-list">
-        <li><img src="images/big.png"></li>
-        <li><img src="images/medium.png"></li>
-        <li><img src="images/small.png"></li>
-      </ul>
+            <li><img src="images/big.png"></li>
+            <li><img src="images/medium.png"></li>
+            <li><img src="images/small.png"></li>
+        </ul>
     </slide>
     
     
@@ -382,7 +353,7 @@ URL: https://code.google.com/p/io-2012-slides
         <aside class="bloc">3.3. Comptamag | Point Technique</aside>
         <hgroup>
             <h2>
-                Gestion de Tags <small>- Point technique</small>
+                Gestion des Tags <small>- Point technique</small>
             </h2>
         </hgroup>
         <article>
@@ -412,22 +383,55 @@ URL: https://code.google.com/p/io-2012-slides
         <aside class="bloc">3.3. Comptamag | Point Technique</aside>
         <hgroup>
             <h2>
-                Gestion de Tags <small> - Schéma</small>
+                Gestion des Tags <small> - Schéma</small>
             </h2>
         </hgroup>
+        <ul class="build img-list">
+            <li><img src="images/schema/complet.png"></li>
+            <li><img src="images/schema/get.png"></li>
+        </ul>
+        
     </slide>
     
     <slide>
         <aside class="bloc">3.3. Comptamag | Point Technique</aside>
         <hgroup>
             <h2>
-                Gestion de Tags <small> - Cotê Client</small>
+                Gestion des Tags <small> - Cotê Client</small>
             </h2>
         </hgroup>
         <article>
-            Structure
-            
-            Gestion
+            <pre class="prettyprint" data-lang="javascript">
+/* Recherche de tags */
+<b>$("#tag-recherche").keyup(function () {</b>       // Lors d'une entrée dans le clavier
+    if ($(this).val().length > 0) {              // Si le champs n'est pas vide
+        <b>liste_ajax_tags($(this).val());</b>       // Cherche les tags
+    } else {                                     // sinon
+        tag_btn_disable();                       // Desactive le bouton d'ajout
+        $("#tag-list").html("");                 // Vide la liste des tags
+    }
+});</pre>
+        </article>
+        <img src="images/eky.png">
+    </slide>
+    
+    <slide>
+        <aside class="bloc">3.3. Comptamag | Point Technique</aside>
+        <hgroup>
+            <h2>
+                Gestion des Tags <small> - Cotê Client / P.2</small>
+            </h2>
+        </hgroup>
+        <article>
+            <pre class="prettyprint" data-lang="javascript">
+// Recherche les tags par requête ajax à l'API du site
+function recup_tags(query, callback){
+    <b>$.get("/api/tags/", query, function (data) { // Requête GET AJAX
+        tags = data; // Récupère les résultats
+        callback(data); // Le callback est executé
+    });</b>
+}</pre>
+            <img src="images/ajax.png">
         </article>
     </slide>
     
@@ -435,23 +439,21 @@ URL: https://code.google.com/p/io-2012-slides
         <aside class="bloc">3.3. Comptamag | Point Technique</aside>
         <hgroup>
             <h2>
-                Gestion de Tags <small> - Cotê Client / P.2</small>
+                Gestion des Tags <small> - Cotê Serveur</small>
             </h2>
         </hgroup>
         <article>
-            Structure
-            
-            Gestion
+            <pre class="prettyprint" data-lang="php">
+public function get_tags($input = false) {
+    if($input == false) {            // Si on a pas reçu la variable par l'URL
+        $input = Input::get('tag');  // On vérifie si on l'à reçu par GET
+    }
+    /*... Validation (enlevée) ...*/
+    $tag = <b>Tag::where("tag","=",$input)->first();</b> // Recherche le Tag par le Model
+    return Response::json($tag);                     // Retourne le tag au format JSON
+}</pre>
+            <img src="images/rest.png">
         </article>
-    </slide>
-    
-    <slide>
-        <aside class="bloc">3.3. Comptamag | Point Technique</aside>
-        <hgroup>
-            <h2>
-                Gestion de Tags <small> - Cotê Serveur</small>
-            </h2>
-        </hgroup>
     </slide>
     
     <slide>
@@ -461,6 +463,13 @@ URL: https://code.google.com/p/io-2012-slides
                 Résultats
             </h2>
         </hgroup>
+        <article>
+            <ul>
+                <li>Le site est fini et en ligne sur un serveur de test.</li>
+                <li><strong>Etape actuelle :</strong> Révision des articles.</li>
+                <li><strong>Prochaine étape :</strong> Mise en production.</li>
+            </ul>
+        </article>
     </slide>
     
     <slide>
@@ -475,6 +484,23 @@ URL: https://code.google.com/p/io-2012-slides
                 Bilan Humain
             </h2>
         </hgroup>
+        <article>
+            <ul>
+                <li>Nouveau aspect d'une différente culture.
+                <ul>
+                    <li>Ambiance sympatique (Open Space)</li>
+                    <li>Adaptation Facille</li>
+                </ul>
+                </li>
+                <li>Force de proposition.
+                    <ul>
+                        <li>Opinions valorisées</li>
+                        <li>Esprit d'équipe renforcé</li>
+                    </ul>
+                </li>
+            </ul>
+        
+        </article>
     </slide>
     
     <slide>
@@ -484,6 +510,17 @@ URL: https://code.google.com/p/io-2012-slides
                 Bilan Technique
             </h2>
         </hgroup>
+        <article>
+            <ul>
+                <li>Nouvelles problématiques.</li>
+                <li>Nouvelles contraintes.</li>
+                <li>Niveau plus avancé que à l'IUT.
+                    <ul>
+                        <li>Plus facile avec les bases aquises en cours</li>
+                    </ul>
+                </li>
+            </ul>
+        </article>
     </slide>
     
     <slide>
@@ -493,6 +530,19 @@ URL: https://code.google.com/p/io-2012-slides
                 Bilan Personnel
             </h2>
         </hgroup>
+        <article>
+            <ul>
+                <li>Cadre très bien dans mon <strong>PPP</strong> : Consultant Web</li>
+                <li>Travailler dans un cas réel.</li>
+                <li>Poursuite en CDD jusqu'à août.</li>
+                <li><strong>Poursuite d'études:</strong> 
+                    <ul>
+                        <li><strong>Ingénierie</strong> : INSA, Polytech</li>
+                        <li><strong>License Informatique</strong> : Lyon 1</li>
+                    </ul></li>
+            </ul>
+        
+        </article>
     </slide>
     
     <slide>
@@ -502,6 +552,21 @@ URL: https://code.google.com/p/io-2012-slides
                 Conclusion
             </h2>
         </hgroup>
+        <article>
+            <ul>
+                <li>Taches bien réalisées.</li>
+                <li>Difficultés surmontées.</li>
+                <li>Poursuite du travail en CDD :</li>
+                <ul>
+                    <li>Redéveloppement du site principal de l'Ecole</li>
+                </ul>
+                <li>Mon apport peut faire la différence</li>
+                
+            </ul>
+        </article>
+        taches bien réalisées, difficultés transposés,
+        
+        
     </slide>
 
   <slide class="thank-you-slide segue nobackground">

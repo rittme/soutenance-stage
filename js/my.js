@@ -1,5 +1,5 @@
 var tags = ["Comptabilité", "Droit", "Gestion", "Ressources Humaines", "Paie", "Aide Comptable", 
-            "Droit Social", "Fiscalité", "Management", "Entreprise", "Création d'entreprise",
+            "Droit Social", "Fiscalité", "Management", "Entreprise",
             "Droit des sociétés", "Normes", "Impôts", "TVA", "Stratégie", 
             "Sécurité Sociale", "Licenciement", "Formation", "Congé"];
          
