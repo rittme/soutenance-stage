@@ -1,4 +1,4 @@
-<!--
+<!-- 
 Google IO 2012 HTML5 Slide Template
 
 Authors: Eric Bidelman <ebidel@gmail.com>
@@ -49,7 +49,7 @@ URL: https://code.google.com/p/io-2012-slides
   </slide>
 
   <slide class="title-slide segue nobackground" hidden>
-    <aside class="gdbar"><img src="images/efc.svg"></aside>
+    <aside class="gdbar"><img src="images/efc.png"></aside>
     <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
     <hgroup class="auto-fadein">
       <h1 data-config-title><!-- populated from slide_config.json --></h1>
@@ -62,21 +62,21 @@ URL: https://code.google.com/p/io-2012-slides
     <aside class="bloc">1.1. Introduction | Présentation</aside>
     <aside class="gdbar right" style="top:170px"><img src="images/lyon1.png"></aside>
 
-    <aside class="gdbar right bottom"><img src="images/efc.svg"></aside>
+    <aside class="gdbar right bottom"><img src="images/efc.png"></aside>
 
     <h2>Contexte</h2>
     <h3>Stagiaire</h3>
     <article class="smaller">
       <p><strong>Bernardo de Paula Rittmeyer</strong></p>
-      <p>Eléve IUT Lyon 1 - G6S4</p>
-      <p><strong>Centre d'Intérets:</strong> Développement Web</p>
+      <p>Elève IUT Lyon 1 - G6S4</p>
+      <p><strong>Centre d'Intérêts:</strong> Développement Web</p>
     </article>
     <hr>
     <h3>Entreprise</h3>
     <article class="smaller">
       <h4>Ecole Française de Comptabilité</h4>
       <p>Etablissement privé d’enseignement à distance des métiers de Comptabilité,<br> Gestion et Finance. </p>
-      <div class="well">
+      <div class="well well-small" style="width: 700px;height: 25px;">
         <p><strong>GIE Gestadis</strong> : pôle des Services Informatiques et des Services Comptables.</p>
       </div>
     </article>
@@ -105,7 +105,7 @@ URL: https://code.google.com/p/io-2012-slides
       <article class="flex" style="-webkit-flex: 1;">
         
           <p>Forum de discussion en ligne pour les étudiants.</p>
-          <p><strong>Objetif:</strong> diminuer la sensation de solitude</p>
+          <p><strong>Objcetif:</strong> diminuer la sensation de solitude</p>
           <p><strong>Système:</strong> PHPBB</p>
         
       </article>
@@ -135,11 +135,11 @@ URL: https://code.google.com/p/io-2012-slides
   <slide>
     <aside class="bloc">2.1. Forum EFC | Analyse</aside>
     <hgroup>
-      <h2>Contraintes</h2>
+      <h2>Difficultés</h2>
     </hgroup>
     <article>
       <ul>
-        <li>Aucune expérience avec le <strong>Systhème PHPBB</strong></li>
+        <li>Aucune expérience avec le <strong>Système PHPBB</strong></li>
         <li>Plus de <em>1500 fichiers</em> et <em>63 tables</em> MySQL
           <ul>
             <li>Faiblement Commenté</li>
@@ -182,7 +182,7 @@ URL: https://code.google.com/p/io-2012-slides
       <article class="flex">
         <p>Option pour s'abonner</p>
         <p>Exportation au format .CSV</p>
-        <p><strong>Sécurité:</strong> Autentification unique avec le Forum</p>
+        <p><strong>Sécurité:</strong> Authentification unique avec le Forum</p>
       </article>
       <aside class="flex" style="text-align:center">
         <img src="images/recup.png" width="100%" class="reflect" alt="Recupération d'utilisateurs" title="Recupération d'utilisateurs">
@@ -316,12 +316,12 @@ URL: https://code.google.com/p/io-2012-slides
             Le Framework Laravel
         </h3>
             <ul>
-                <li>LAMP (Linux, Apache, MySQL, PHP)</li>
+                <li>PHP</li>
                 <li>Structure de base pour le développement</li>
                 <li>Inspiré sur Ruby on Rails</li>
             </ul>
             <hr>
-            <strong>Quelques fonctionnalités:</strong> ORM, Routing, Templating, Validation de données, REST, Structure MVC
+            <strong>Quelques fonctionnalités:</strong> ORM, Routing, Validation de données, RESTful, Structure MVC
         </article>
     </slide>
     
@@ -404,10 +404,10 @@ URL: https://code.google.com/p/io-2012-slides
             <pre class="prettyprint" data-lang="javascript">
 /* Recherche de tags */
 <b>$("#tag-recherche").keyup(function () {</b>       // Lors d'une entrée dans le clavier
-    if ($(this).val().length > 0) {              // Si le champs n'est pas vide
+    if ($(this).val().length > 0) {              // Si le champ n'est pas vide
         <b>liste_ajax_tags($(this).val());</b>       // Cherche les tags
     } else {                                     // sinon
-        tag_btn_disable();                       // Desactive le bouton d'ajout
+        tag_btn_disable();                       // Désactive le bouton d'ajout
         $("#tag-list").html("");                 // Vide la liste des tags
     }
 });</pre>
@@ -424,7 +424,7 @@ URL: https://code.google.com/p/io-2012-slides
         </hgroup>
         <article>
             <pre class="prettyprint" data-lang="javascript">
-// Recherche les tags par requête ajax à l'API du site
+// Recherche les tags par requête AJAX à l'API du site
 function recup_tags(query, callback){
     <b>$.get("/api/tags/", query, function (data) { // Requête GET AJAX
         tags = data; // Récupère les résultats
@@ -449,7 +449,8 @@ public function get_tags($input = false) {
         $input = Input::get('tag');  // On vérifie si on l'à reçu par GET
     }
     /*... Validation (enlevée) ...*/
-    $tag = <b>Tag::where("tag","=",$input)->first();</b> // Recherche le Tag par le Model
+    // Recherche le Tag par le Model
+    $tag = <b>Tag::where('tag', 'like', '%'.$input.'%')->take($limit)->get();</b> 
     return Response::json($tag);                     // Retourne le tag au format JSON
 }</pre>
             <img src="images/rest.png">
@@ -486,10 +487,10 @@ public function get_tags($input = false) {
         </hgroup>
         <article>
             <ul>
-                <li>Nouveau aspect d'une différente culture.
+                <li>Nouvel aspect d'une différente culture.
                 <ul>
-                    <li>Ambiance sympatique (Open Space)</li>
-                    <li>Adaptation Facille</li>
+                    <li>Ambiance sympathique (Open Space)</li>
+                    <li>Adaptation Facile</li>
                 </ul>
                 </li>
                 <li>Force de proposition.
@@ -514,9 +515,14 @@ public function get_tags($input = false) {
             <ul>
                 <li>Nouvelles problématiques.</li>
                 <li>Nouvelles contraintes.</li>
-                <li>Niveau plus avancé que à l'IUT.
+                <li>Niveau plus avancé qu'à l'IUT.
                     <ul>
-                        <li>Plus facile avec les bases aquises en cours</li>
+                        <li>Plus facile avec les bases acquises en cours</li>
+                    </ul>
+                </li>
+                <li>Utilisation de technologies de pointe.
+                    <ul>
+                        <li>Durée de vie plus longue</li>
                     </ul>
                 </li>
             </ul>
@@ -563,9 +569,7 @@ public function get_tags($input = false) {
                 <li>Mon apport peut faire la différence</li>
                 
             </ul>
-        </article>
-        taches bien réalisées, difficultés transposés,
-        
+        </article>      
         
     </slide>
 
